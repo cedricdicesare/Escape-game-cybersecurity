@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACKOUT — Escape Game Cybersécurité</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=VT323&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="scanlines"></div>
+<div class="noise"></div>
+
+<!-- BOOT SCREEN -->
+<div id="boot-screen" class="boot-screen">
+  <div class="boot-content">
+    <div class="boot-logo">BLACKOUT</div>
+    <div class="boot-tagline">Un ransomware. 60 minutes. Une équipe.</div>
+    <div class="boot-lines" id="boot-lines"></div>
+    <button class="boot-start" id="boot-start" style="display:none" onclick="startGame()">
+      <span class="blink">▶</span> LANCER LA MISSION
+    </button>
+  </div>
+</div>
+
+<!-- MAIN APP -->
+<div id="app" class="app" style="display:none">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-left">
+      <div class="logo-text">BLACK<span class="accent">OUT</span></div>
+      <div class="mission-label">RANSOMWARE INCIDENT — EN COURS</div>
+    </div>
+
+    <div class="header-center">
+      <div class="timer-block">
+        <div class="timer-label">TEMPS RESTANT</div>
+        <div class="timer-display" id="timer">90:00</div>
+        <div class="timer-bar"><div class="timer-fill" id="timer-fill"></div></div>
+        <div class="timer-penalty" id="timer-penalty" style="display:none">-5:00 PÉNALITÉ</div>
+      </div>
+      <button class="pause-btn" id="pause-btn" onclick="togglePause()">
+        <span id="pause-icon">⏸</span> <span id="pause-label">PAUSE</span>
+      </button>
+    </div>
+
+    <div class="header-right">
+      <div class="progress-label">MODULES RÉSOLUS</div>
+      <div class="progress-display"><span id="score-display">0</span>/25</div>
+      <div class="code-display">
+        <span class="code-digit" id="cd1">?</span>
+        <span class="code-sep">—</span>
+        <span class="code-digit" id="cd2">?</span>
+        <span class="code-sep">—</span>
+        <span class="code-digit" id="cd3">?</span>
+        <span class="code-sep">—</span>
+        <span class="code-digit" id="cd4">?</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAUSE OVERLAY -->
+  <div id="pause-overlay" class="pause-overlay" style="display:none">
+    <div class="pause-content">
+      <div class="pause-title">⏸ PAUSE — DÉBRIEF EN COURS</div>
+      <div class="pause-msg">Le compte à rebours est suspendu.<br>Profitez-en pour discuter ensemble avant de continuer.</div>
+      <button class="btn-primary" onclick="togglePause()">▶ REPRENDRE LA MISSION</button>
+    </div>
+  </div>
+
+  <!-- STORY TICKER -->
+  <div class="story-banner">
+    <div class="story-icon blink">⚠</div>
+    <div class="story-text" id="story-text">Initialisation...</div>
+  </div>
+
+  <!-- LAYOUT -->
+  <main class="main-content">
+
+    <nav class="sidebar">
+      <div class="sidebar-title">MODULES D'ENQUÊTE</div>
+      <div class="nav-items" id="nav-items"></div>
+      <div class="sidebar-footer">
+        <div class="threat-label">NIVEAU DE MENACE</div>
+        <div class="threat-bar"><div class="threat-fill" id="threat-fill"></div></div>
+        <div class="threat-text" id="threat-text">CRITIQUE</div>
+        <div style="margin-top:0.75rem;font-size:10px;color:var(--gray);line-height:1.6;">
+          Chaque erreur coûte<br><span style="color:var(--red)">−5 minutes</span>
+        </div>
+      </div>
+    </nav>
+
+    <section class="content-area" id="content-area">
+      <div id="welcome-screen">
+        <div class="terminal-window">
+          <div class="terminal-bar">
+            <span class="t-dot t-red"></span><span class="t-dot t-yellow"></span><span class="t-dot t-green"></span>
+            <span class="terminal-title">blackout@incident-response:~#</span>
+          </div>
+          <div class="terminal-body" id="welcome-terminal"></div>
+        </div>
+      </div>
+      <div class="enigma-view" id="enigma-view" style="display:none"></div>
+    </section>
+
+  </main>
+
+  <!-- VICTORY -->
+  <div id="victory-screen" class="overlay-screen victory-screen" style="display:none">
+    <div class="overlay-content">
+      <div class="victory-glitch" data-text="RANSOMWARE NEUTRALISÉ">RANSOMWARE NEUTRALISÉ</div>
+      <div class="victory-sub">Code de désactivation :</div>
+      <div class="victory-code" id="victory-code-display">? — ? — ? — ?</div>
+      <div class="victory-time">Temps restant : <span id="victory-time-left"></span></div>
+      <div class="debrief-section">
+        <h3>CE QUE VOUS AVEZ APPRIS — 20 FONDAMENTAUX</h3>
+        <div class="debrief-grid" id="debrief-grid"></div>
+      </div>
+      <button onclick="resetGame()" class="btn-primary" style="margin-top:2rem">↺ NOUVELLE PARTIE</button>
+    </div>
+  </div>
+
+  <!-- GAME OVER -->
+  <div id="gameover-screen" class="overlay-screen gameover-screen" style="display:none">
+    <div class="overlay-content">
+      <div class="gameover-title">DONNÉES CHIFFRÉES</div>
+      <pre class="gameover-ascii">
+██████╗ ██╗      █████╗  ██████╗██╗  ██╗ ██████╗ ██╗   ██╗████████╗
+██╔══██╗██║     ██╔══██╗██╔════╝██║ ██╔╝██╔═══██╗██║   ██║╚══██╔══╝
+██████╔╝██║     ███████║██║     █████╔╝ ██║   ██║██║   ██║   ██║
+██╔══██╗██║     ██╔══██║██║     ██╔═██╗ ██║   ██║██║   ██║   ██║
+██████╔╝███████╗██║  ██║╚██████╗██║  ██╗╚██████╔╝╚██████╔╝   ██║
+      </pre>
+      <div class="gameover-msg">Le temps s'est écoulé. Le ransomware a chiffré 847 Go de données.<br>Toutes vos données sont maintenant .blackout — et en vente.</div>
+      <button onclick="resetGame()" class="btn-danger" style="margin-top:1.5rem">↺ RECOMMENCER</button>
+    </div>
+  </div>
+
+</div>
+
+<script src="game.js"></script>
+</body>
+</html>
