@@ -17,7 +17,7 @@ let STATE = {
 const PENALTY_SEC = 300; // 5 minutes per wrong answer
 
 // ═══════════════════════════════════════════════════════
-// 25 ENIGMAS — accessibles à tous, fondamentaux sécu
+// 15 ENIGMAS — accessibles à tous, fondamentaux sécu
 // ═══════════════════════════════════════════════════════
 const ENIGMAS = [
 
@@ -475,38 +475,6 @@ const ENIGMAS = [
   lesson:"Installez les mises à jour de sécurité dès que possible. Programmez-les le soir si nécessaire, mais ne les reportez pas indéfiniment."
 },
 
-// ── 13 ────────────────────────────────────────────────
-{
-  id:13, phase:"ACTE III — LE RANSOMWARE",
-  title:"Le Partage de Mot de Passe",
-  subtitle:"Pourquoi ne pas partager ses accès",
-  story:`En remontant la piste, l'équipe découvre que deux commerciaux partageaient le même mot de passe pour accéder au CRM. "C'est plus pratique quand l'un est absent." Ce compte partagé a été la porte d'entrée principale — et personne ne sait lequel des deux a été compromis en premier.`,
-  visual:`<div class="visual-container" style="padding:1.25rem">
-    <div style="font-family:var(--body);font-size:14px;color:var(--white);line-height:1.8;margin-bottom:1rem">
-      <strong style="color:var(--amber)">Pourquoi partager un mot de passe est dangereux :</strong>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:.6rem;font-family:var(--body);font-size:14px">
-      <div style="padding:.7rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">👤 Si l'un des deux est piraté, <strong>les deux comptes</strong> sont compromis</div>
-      <div style="padding:.7rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">🔍 Impossible de savoir <strong>qui a fait quoi</strong> — plus de traçabilité</div>
-      <div style="padding:.7rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">🚪 Un employé qui part <strong>garde l'accès</strong> si le mot de passe n'est pas changé</div>
-      <div style="padding:.7rem;background:var(--gdim);border-left:2px solid var(--green);color:var(--white)">✓ <strong>Solution :</strong> Chaque personne a son propre compte. Les absences se gèrent autrement (droits délégués, comptes de service).</div>
-    </div>
-  </div>`,
-  question:"Un collègue vous demande votre mot de passe professionnel car il doit accéder à un fichier pendant votre absence. Que faites-vous ?",
-  options:[
-    {t:"Lui donner le mot de passe car vous faites confiance à ce collègue.", c:false},
-    {t:"Lui envoyer le mot de passe par SMS car c'est plus sécurisé que par email.", c:false},
-    {t:"Refuser et chercher une solution alternative : partage de fichier, droits d'accès temporaires, ou intervention du service IT.", c:true},
-    {t:"Changer le mot de passe à votre retour, donc donner le mot de passe temporairement.", c:false}
-  ],
-  feedback:{
-    ok:"✓ Correct. Ce n'est pas une question de confiance — c'est une règle de sécurité. Si votre collègue se fait pirater, votre compte l'est aussi. La solution : partage de fichier direct, droits délégués, ou demande au service IT. Votre mot de passe est personnel, même dans l'entreprise.",
-    ko:"Partager son mot de passe est interdit par la charte informatique de presque toutes les entreprises. Ce n'est pas une question de confiance dans le collègue — si son poste est compromis, votre compte le sera aussi. Il existe toujours une solution alternative."
-  },
-  hint:"Qu'arrive-t-il à votre compte si le poste de votre collègue est compromis après qu'il a votre mot de passe ?",
-  lesson:"Ne partagez jamais votre mot de passe, même avec un collègue de confiance. Chaque personne doit avoir ses propres accès."
-},
-
 // ── 14 ────────────────────────────────────────────────
 {
   id:14, phase:"ACTE IV — LA RÉSISTANCE",
@@ -546,107 +514,9 @@ const ENIGMAS = [
   codeReveal:"Dernier chiffre du code débloqué : <span style='color:var(--green);font-family:var(--display);font-size:22px;font-weight:700'>5</span>"
 },
 
-// ── 15 ────────────────────────────────────────────────
-{
-  id:15, phase:"ACTE IV — LA RÉSISTANCE",
-  title:"Le Réseau Social Indiscret",
-  subtitle:"Faire attention à ce qu'on publie en ligne",
-  story:`En préparant l'attaque, GR1MF0X a passé 2 semaines à étudier les profils LinkedIn et Facebook des employés. Ils ont trouvé : l'organigramme de l'entreprise, les outils utilisés, les noms des prestataires, et même des photos de badges pris lors de conférences.`,
-  visual:`<div class="visual-container" style="padding:1.25rem">
-    <div style="font-size:10px;color:var(--gray);letter-spacing:.18em;font-family:var(--display);margin-bottom:.75rem">CE QUE LES HACKERS TROUVENT SUR LES RÉSEAUX SOCIAUX</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;font-family:var(--body);font-size:13px">
-      <div style="padding:.65rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">"Fière de rejoindre l'équipe marketing de Verixa ! 🎉" → <strong style="color:var(--red)">organigramme révélé</strong></div>
-      <div style="padding:.65rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">"Présentation de notre nouveau CRM SAP lors du congrès" → <strong style="color:var(--red)">outils identifiés</strong></div>
-      <div style="padding:.65rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">Photo de badge avec nom complet et service → <strong style="color:var(--red)">usurpation d'identité</strong></div>
-      <div style="padding:.65rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">"En déplacement à Londres cette semaine ☀️" → <strong style="color:var(--red)">cible absente identifiée</strong></div>
-    </div>
-  </div>`,
-  question:"Vous postulez à une conférence et souhaitez publier sur LinkedIn. Quelle publication est la plus prudente ?",
-  options:[
-    {t:"'Super conférence sur les nouveaux outils Microsoft que nous utilisons chez Verixa — hâte d'implémenter Azure AD !'", c:false},
-    {t:"'Excellente journée de formation en cybersécurité — beaucoup appris sur la protection des données professionnelles.'", c:true},
-    {t:"'Représente Verixa à la conférence SecurIT — notre RSSI Jean Dupont présentait notre stratégie de sécurité.'", c:false},
-    {t:"'Notre équipe de 12 personnes au service IT travaille sur le projet de migration réseau ce trimestre.'", c:false}
-  ],
-  feedback:{
-    ok:"✓ Bonne réponse. Cette publication partage votre enthousiasme sans révéler d'informations exploitables : pas de nom d'outil, pas d'organigramme, pas de stratégie interne. Les autres options révèlent des informations précieuses pour un attaquant qui prépare une attaque ciblée.",
-    ko:"Cette publication révèle des informations que les hackers collectent activement : nom des outils utilisés, noms de personnes clés, taille des équipes, projets en cours. Partagez votre enthousiasme sans les détails techniques."
-  },
-  hint:"Quelles informations dans les autres réponses pourraient aider un hacker à cibler votre entreprise ?",
-  lesson:"Sur les réseaux sociaux, évitez de mentionner les outils utilisés, l'organigramme, les projets en cours. Partagez l'enthousiasme, pas les détails."
-},
-
-// ── 16 ────────────────────────────────────────────────
-{
-  id:16, phase:"ACTE IV — LA RÉSISTANCE",
-  title:"Le Bureau Encombré",
-  subtitle:"La politique du bureau propre",
-  story:`En visitant les bureaux pour l'enquête forensique, l'expert en sécurité fait un constat alarmant : post-its avec des mots de passe sur les écrans, documents confidentiels laissés sur les imprimantes, écrans non verrouillés à la pause déjeuner. La sécurité physique est aussi importante que la sécurité numérique.`,
-  visual:`<div class="visual-container" style="padding:1.25rem">
-    <div style="font-size:10px;color:var(--amber);letter-spacing:.18em;font-family:var(--display);margin-bottom:.75rem">AUDIT DU BUREAU — RÉSULTATS</div>
-    <div style="display:flex;flex-direction:column;gap:.55rem;font-family:var(--body);font-size:14px">
-      <div style="padding:.65rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">🗒️ Post-it "MDP Teams : Verixa2026!" collé sur l'écran</div>
-      <div style="padding:.65rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">🖨️ Contrat client confidentiel oublié sur l'imprimante depuis hier</div>
-      <div style="padding:.65rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">💻 Poste non verrouillé depuis 45 minutes (déjeuner)</div>
-      <div style="padding:.65rem;background:var(--gdim);border-left:2px solid var(--green);color:var(--white)">✓ Bureau rangé, écran verrouillé, aucun document confidentiel visible</div>
-    </div>
-  </div>`,
-  question:"Vous partez déjeuner pour 1 heure. Que faites-vous avant de quitter votre bureau ?",
-  options:[
-    {t:"Rien — le bureau est dans l'open space et tout le monde se connaît.", c:false},
-    {t:"Verrouiller votre ordinateur (Windows+L) et ranger les documents confidentiels.", c:true},
-    {t:"Éteindre l'ordinateur pour être sûr.", c:false},
-    {t:"Minimiser toutes les fenêtres ouvertes.", c:false}
-  ],
-  feedback:{
-    ok:"✓ Correct. Le raccourci Windows+L verrouille l'écran en 1 seconde. C'est un réflexe à adopter à chaque départ, même pour 2 minutes. Les documents confidentiels à la vue de tous (clients, prestataires, livreurs) représentent un risque réel. Le badge d'un visiteur ou d'un prestataire suffit à lire un post-it.",
-    ko:"La confiance dans les collègues ne protège pas des visiteurs externes, des prestataires ou de la livraison du midi. Éteindre l'ordinateur prend trop de temps à redémarrer. Minimiser les fenêtres ne protège rien. Seul le verrouillage (Win+L) protège réellement."
-  },
-  hint:"Quel raccourci clavier verrouille l'écran instantanément sous Windows ?",
-  lesson:"Verrouillez votre écran (Windows+L) à chaque fois que vous quittez votre bureau, même pour quelques minutes."
-},
-
-// ── 17 ────────────────────────────────────────────────
-{
-  id:17, phase:"ACTE V — LA RECONSTRUCTION",
-  title:"Signaler un Incident",
-  subtitle:"Réflexe en cas de doute ou d'incident",
-  story:`Un employé a reçu un email suspect mais n'a pas osé le signaler — "ça doit être normal, je ne veux pas déranger". Deux jours plus tard, il a cliqué sur un lien similaire sans réfléchir. La culture du silence est l'alliée des hackers.`,
-  visual:`<div class="visual-container" style="padding:1.25rem">
-    <div style="display:flex;flex-direction:column;gap:.6rem;font-family:var(--body);font-size:14px">
-      <div style="padding:.85rem;background:var(--bg3);border:1px solid var(--border)">
-        <strong style="color:var(--amber)">Que signaler ?</strong><br><br>
-        <div style="color:var(--white);line-height:1.8">
-          ✦ Un email qui semble suspect ou inhabituel<br>
-          ✦ Un appel téléphonique demandant des informations sensibles<br>
-          ✦ Un comportement étrange de votre ordinateur (lenteur soudaine, pop-ups)<br>
-          ✦ Un fichier ou lien sur lequel vous avez cliqué par erreur<br>
-          ✦ Un accès inhabituel à vos comptes (alerte de connexion depuis un lieu inconnu)
-        </div>
-      </div>
-      <div style="padding:.85rem;background:rgba(0,255,65,.05);border:1px solid rgba(0,255,65,.2);border-left:3px solid var(--green)">
-        <div style="font-family:var(--body);font-size:14px;color:var(--white);line-height:1.7"><strong style="color:var(--green)">Il vaut mieux signaler une fausse alerte que ne pas signaler une vraie attaque.</strong> Le service IT préfère recevoir 10 fausses alertes plutôt que de rater une vraie infection.</div>
-      </div>
-    </div>
-  </div>`,
-  question:"Vous avez cliqué par erreur sur un lien dans un email qui semblait suspect. La page s'est ouverte puis vous l'avez fermée rapidement. Que faites-vous ?",
-  options:[
-    {t:"Ne rien faire — vous avez fermé la page très vite donc le risque est nul.", c:false},
-    {t:"Signaler immédiatement au service IT en précisant ce qui s'est passé, même si vous n'êtes pas sûr que c'était dangereux.", c:true},
-    {t:"Lancer une analyse antivirus et ne signaler que si elle détecte quelque chose.", c:false},
-    {t:"Attendre de voir si des problèmes apparaissent sur votre ordinateur dans les prochains jours.", c:false}
-  ],
-  feedback:{
-    ok:"✓ Parfait. Signaler immédiatement même si vous n'êtes pas sûr. Le service IT peut analyser rapidement et confirmer. Certains malwares s'installent en quelques secondes, avant même que vous fermiez la page. Plus le signalement est rapide, plus la réponse est efficace et les dégâts limités.",
-    ko:"Fermer rapidement ne garantit rien — certains scripts s'exécutent en millisecondes. L'antivirus peut rater les menaces récentes. Attendre laisse le malware s'installer confortablement. Le service IT préfère mille fausses alertes à un signalement tardif."
-  },
-  hint:"Combien de temps un script malveillant a-t-il besoin pour s'installer après l'ouverture d'une page web ?",
-  lesson:"Signalez immédiatement tout incident, même mineur ou incertain. Il vaut mieux une fausse alerte qu'une infection non détectée."
-},
-
 // ── 18 ────────────────────────────────────────────────
 {
-  id:18, phase:"ACTE V — LA RECONSTRUCTION",
+  id:18, phase:"ACTE IV — LA RÉSISTANCE",
   title:"Le Gestionnaire de Mots de Passe",
   subtitle:"Comment gérer ses mots de passe en pratique",
   story:`L'enquête révèle que 67% des employés utilisaient le même mot de passe sur leur compte pro et leurs comptes personnels. Quand une base de données d'un site de shopping a fuité il y a 1 an, les hackers ont pu réutiliser ces mots de passe sur les comptes professionnels.`,
@@ -680,49 +550,9 @@ const ENIGMAS = [
   lesson:"Utilisez un gestionnaire de mots de passe (Bitwarden, 1Password, KeePass). Un mot de passe unique par site, vous n'en retenez qu'un."
 },
 
-// ── 19 ────────────────────────────────────────────────
-{
-  id:19, phase:"ACTE V — LA RECONSTRUCTION",
-  title:"La Mise en Situation Finale",
-  subtitle:"Vous êtes ciblé personnellement",
-  story:`GR1MF0X vous cible personnellement. Ils connaissent votre nom, votre fonction, le nom de votre manager. Un email arrive : <strong>"Voici le document que vous m'avez demandé hier lors de notre réunion."</strong> Votre manager est en copie. La pièce jointe s'appelle "compte-rendu-reunion.pdf".`,
-  visual:`<div class="visual-container"><div class="email-mockup">
-    <div class="email-header">
-      <div class="email-field"><span class="email-field-label">De :</span><span class="email-field-val sus">p.martin.consultant@gmail.com</span></div>
-      <div class="email-field"><span class="email-field-label">À :</span><span class="email-field-val">vous@votre-entreprise.fr</span></div>
-      <div class="email-field"><span class="email-field-label">Cc :</span><span class="email-field-val">votre.manager@votre-entreprise.fr</span></div>
-      <div class="email-subject">Compte-rendu de notre réunion d'hier</div>
-    </div>
-    <div class="email-body">
-      Bonjour,<br><br>
-      Comme convenu lors de notre réunion d'hier, je vous transmets le compte-rendu finalisé.<br><br>
-      N'hésitez pas à me revenir si vous souhaitez y apporter des modifications.<br><br>
-      Cordialement,<br>
-      Pierre Martin — Consultant<br><br>
-      <strong>📎 compte-rendu-reunion.pdf</strong>
-    </div>
-  </div></div>
-  <div style="padding:.85rem;background:var(--bg3);border-top:1px solid var(--border)">
-    <div style="font-family:var(--body);font-size:14px;color:var(--white);line-height:1.7"><strong style="color:var(--amber)">Spear phishing :</strong> Contrairement au phishing de masse, cette attaque est <strong>personnalisée</strong> pour vous. GR1MF0X a collecté les informations sur LinkedIn et vos réseaux sociaux. L'email semble crédible car il connaît votre contexte.</div>
-  </div>`,
-  question:"L'email semble lié à une vraie réunion. Vous ne vous souvenez pas d'un 'Pierre Martin'. Que faites-vous ?",
-  options:[
-    {t:"Ouvrir la pièce jointe pour vérifier si elle correspond bien à une réunion que vous auriez pu oublier.", c:false},
-    {t:"Ne pas ouvrir la pièce jointe. Contacter votre manager en lui demandant s'il connaît ce Pierre Martin et s'il a bien participé à cette réunion.", c:true},
-    {t:"Répondre à l'email pour demander des précisions sur la réunion en question.", c:false},
-    {t:"Ouvrir la pièce jointe mais ne cliquer sur aucun lien à l'intérieur.", c:false}
-  ],
-  feedback:{
-    ok:"✓ Parfait. Ne jamais ouvrir une pièce jointe en cas de doute — même si elle semble liée à quelque chose de réel. Votre manager peut confirmer en 30 secondes. Si la réunion est fictive, c'est un spear phishing. Si elle est réelle mais que vous avez oublié, le vrai Pierre Martin comprendra votre vérification.",
-    ko:"Un PDF peut contenir du code malveillant qui s'exécute à l'ouverture. Répondre à l'email contacte le hacker. 'Ne pas cliquer sur les liens' ne protège pas des PDF ou Word malveillants. Le doute suffit à ne pas ouvrir — vérifiez d'abord."
-  },
-  hint:"Si vous ne vous souvenez pas d'une réunion, qui est la personne la mieux placée pour confirmer si elle a eu lieu ?",
-  lesson:"En cas de doute sur une pièce jointe, ne l'ouvrez pas. Vérifiez d'abord par un autre canal (appel, message à votre manager)."
-},
-
 // ── 20 ────────────────────────────────────────────────
 {
-  id:20, phase:"ÉPILOGUE — LA VICTOIRE",
+  id:20, phase:"ACTE V — LA RECONSTRUCTION",
   title:"Le Code de Désactivation",
   subtitle:"Synthèse et désactivation du ransomware",
   story:`Vous avez les 4 chiffres. Le code de désactivation est prêt. Mais avant d'appuyer sur le bouton, une dernière question — la plus importante. GR1MF0X a laissé un message : <em>"Hello, friend. Back to basics."</em> Ils ont raison.`,
@@ -759,227 +589,7 @@ const ENIGMAS = [
     ko:"Toutes ces mesures sont importantes — mais si une seule est possible : le MFA. L'antivirus ne protège pas contre le phishing ou les erreurs humaines. La formation est essentielle mais les gens font des erreurs même formés. Les mises à jour corrigent les failles logicielles mais pas l'erreur humaine. Le MFA protège même quand tout le reste échoue."
   },
   hint:"Quelle mesure aurait bloqué l'accès même si le hacker avait le bon mot de passe ?",
-  lesson:"Le MFA est votre mesure numéro 1. Activez-le sur tous vos comptes — pro et perso. C'est simple, gratuit, et extrêmement efficace."
-},
-
-// ── 21 ────────────────────────────────────────────────
-{
-  id:21, phase:"ACTE V — LA RECONSTRUCTION",
-  title:"Le Carnet de Mots de Passe",
-  subtitle:"Où et comment stocker ses mots de passe ?",
-  story:`En faisant le tour des bureaux après l'incident, le responsable sécurité découvre trois façons différentes dont les employés stockent leurs mots de passe : un fichier Excel sur le bureau intitulé "MDP_2026.xlsx", des post-its collés sous les claviers, et des mots de passe sauvegardés dans le navigateur Chrome. <strong>Aucune n'est vraiment sûre</strong> — mais certaines sont bien plus risquées que d'autres.`,
-  visual:`<div class="visual-container" style="padding:1.25rem">
-    <div style="font-size:10px;color:var(--amber);letter-spacing:.18em;font-family:var(--display);margin-bottom:.85rem">COMPARATIF DES MÉTHODES DE STOCKAGE</div>
-    <div style="display:flex;flex-direction:column;gap:.6rem;font-family:var(--body);font-size:14px">
-      <div style="padding:.85rem;background:var(--rdim);border-left:3px solid var(--red)">
-        <div style="color:var(--red);font-weight:600;margin-bottom:4px">🗒️ Post-it / carnet papier</div>
-        <div style="color:var(--white)">Visible par n'importe qui passant près du bureau, photographiable en 1 seconde, perdu ou volé facilement. <strong style="color:var(--red)">Risque très élevé.</strong></div>
-      </div>
-      <div style="padding:.85rem;background:var(--rdim);border-left:3px solid var(--red)">
-        <div style="color:var(--red);font-weight:600;margin-bottom:4px">📊 Fichier Excel / Word / Notes</div>
-        <div style="color:var(--white)">Non chiffré par défaut. Si le poste est compromis ou volé, tous vos mots de passe sont en clair. Souvent synchronisé dans le cloud sans protection. <strong style="color:var(--red)">Risque très élevé.</strong></div>
-      </div>
-      <div style="padding:.85rem;background:rgba(255,176,0,.08);border-left:3px solid var(--amber)">
-        <div style="color:var(--amber);font-weight:600;margin-bottom:4px">🌐 Sauvegarde dans le navigateur (Chrome, Firefox…)</div>
-        <div style="color:var(--white)">Pratique mais lié à votre compte Google/Microsoft. Si ce compte est compromis, tous vos mots de passe le sont aussi. Pas de chiffrement fort. <strong style="color:var(--amber)">Risque modéré.</strong></div>
-      </div>
-      <div style="padding:.85rem;background:rgba(0,255,65,.08);border-left:3px solid var(--green)">
-        <div style="color:var(--green);font-weight:600;margin-bottom:4px">🔐 Gestionnaire de mots de passe dédié (Bitwarden, 1Password…)</div>
-        <div style="color:var(--white)">Chiffrement fort, mot de passe maître unique, génération de mots de passe aléatoires. Même si compromis, les données restent chiffrées. <strong style="color:var(--green)">Solution recommandée.</strong></div>
-      </div>
-    </div>
-  </div>`,
-  question:"Un collègue vous dit : 'J'ai un fichier Excel protégé par un mot de passe avec tous mes accès dedans, c'est bien non ?' Que lui répondez-vous ?",
-  options:[
-    {t:"Oui, c'est une bonne méthode si le fichier est bien protégé par un mot de passe fort.", c:false},
-    {t:"Non — la protection par mot de passe d'Excel est faible et contournable. Un gestionnaire de mots de passe dédié est bien plus sûr.", c:true},
-    {t:"Oui, tant que le fichier est stocké sur un disque chiffré.", c:false},
-    {t:"C'est acceptable si personne d'autre n'a accès à son ordinateur.", c:false}
-  ],
-  feedback:{
-    ok:"✓ Exact. La protection par mot de passe d'Excel peut être contournée avec des outils gratuits trouvables en ligne en quelques minutes. De plus, si le poste est infecté par un malware, le fichier sera lu avant même que vous l'ouvriez. Un gestionnaire de mots de passe dédié utilise un chiffrement AES-256 bien plus robuste.",
-    ko:"La protection par mot de passe d'Excel donne une fausse impression de sécurité. Elle se contourne facilement. Et si le poste est compromis, le fichier est lu en clair par le malware. La bonne solution : un gestionnaire de mots de passe dédié comme Bitwarden (gratuit) ou 1Password."
-  },
-  hint:"Cherchez comment les hackers accèdent à un fichier Excel protégé par mot de passe. Est-ce vraiment difficile ?",
-  lesson:"Ne stockez pas vos mots de passe dans Excel, Word, un post-it ou un carnet. Utilisez un gestionnaire dédié (Bitwarden, KeePass, 1Password)."
-},
-
-// ── 22 ────────────────────────────────────────────────
-{
-  id:22, phase:"ACTE V — LA RECONSTRUCTION",
-  title:"Le Poste Personnel au Bureau",
-  subtitle:"Utiliser son équipement perso ou celui de l'entreprise ?",
-  story:`Le lundi suivant l'incident, un employé arrive avec son ordinateur personnel car son poste professionnel est en cours de réinstallation. Il propose de l'utiliser temporairement pour travailler sur les dossiers clients et se connecter à la messagerie professionnelle. <strong>"C'est juste pour quelques jours."</strong>`,
-  visual:`<div class="visual-container" style="padding:1.25rem">
-    <div class="info-grid">
-      <div class="info-box good">
-        <div class="info-title" style="color:var(--green)">POSTE FOURNI PAR L'ENTREPRISE</div>
-        <div class="info-body" style="line-height:1.8">
-          ✓ Antivirus géré par l'IT<br>
-          ✓ Mises à jour automatiques<br>
-          ✓ Chiffrement du disque activé<br>
-          ✓ VPN configuré<br>
-          ✓ Politique de sécurité appliquée<br>
-          ✓ Inventorié et supervisé
-        </div>
-      </div>
-      <div class="info-box warn">
-        <div class="info-title" style="color:var(--red)">POSTE PERSONNEL</div>
-        <div class="info-body" style="line-height:1.8">
-          ✗ Antivirus inconnu ou absent<br>
-          ✗ Mises à jour non gérées<br>
-          ✗ Logiciels non validés installés<br>
-          ✗ Utilisé par d'autres membres de la famille<br>
-          ✗ Non chiffré<br>
-          ✗ Hors périmètre de sécurité de l'entreprise
-        </div>
-      </div>
-    </div>
-    <div style="padding:.85rem;background:var(--bg3);border-top:1px solid var(--border)">
-      <div style="font-family:var(--body);font-size:14px;color:var(--white);line-height:1.7">Si le poste personnel est compromis (ce que l'IT ne peut pas savoir), les données professionnelles — dossiers clients, emails, mots de passe — sont exposées <strong style="color:var(--red)">hors du périmètre de contrôle de l'entreprise.</strong></div>
-    </div>
-  </div>`,
-  question:"Votre poste professionnel est en maintenance. Peut-on utiliser son ordinateur personnel pour travailler sur des données de l'entreprise ?",
-  options:[
-    {t:"Oui, si on fait attention et qu'on n'installe rien de suspect dessus.", c:false},
-    {t:"Oui, mais uniquement pour lire les emails — pas pour travailler sur des fichiers.", c:false},
-    {t:"Non — contacter le service IT pour obtenir un poste de remplacement ou une solution validée. L'ordinateur personnel n'est pas sécurisé selon les standards de l'entreprise.", c:true},
-    {t:"Oui, si on utilise une connexion VPN.", c:false}
-  ],
-  feedback:{
-    ok:"✓ Correct. L'ordinateur personnel échappe au contrôle du service IT : pas d'antivirus géré, pas de chiffrement garanti, potentiellement utilisé par d'autres personnes, avec des logiciels non validés. Le VPN protège la communication mais pas le poste lui-même. La bonne démarche : appeler l'IT pour un prêt de matériel ou une solution de remplacement.",
-    ko:"Même avec précaution ou VPN, le poste personnel reste en dehors du périmètre de sécurité de l'entreprise. L'IT ne peut pas vérifier son état. Un malware présent à l'insu de l'employé peut intercepter toutes les données professionnelles. Contactez toujours le service IT pour une solution officielle."
-  },
-  hint:"Si votre ordinateur personnel est infecté sans que vous le sachiez, qui peut le détecter et y remédier ?",
-  lesson:"N'utilisez jamais votre ordinateur personnel pour travailler sur des données de l'entreprise. Contactez l'IT pour obtenir un équipement de remplacement."
-},
-
-// ── 23 ────────────────────────────────────────────────
-{
-  id:23, phase:"ACTE V — LA RECONSTRUCTION",
-  title:"Le Logiciel Non Autorisé",
-  subtitle:"Installer un logiciel sans accord du service IT",
-  story:`Pour aller plus vite sur un projet, un chef de projet installe directement depuis Internet un outil de gestion gratuit qu'il a trouvé sur un forum. <strong>"C'est open source, c'est forcément sûr."</strong> Il n'a pas demandé à l'IT. L'outil en question collectait discrètement les frappes clavier depuis 3 semaines.`,
-  visual:`<div class="visual-container" style="padding:1.25rem">
-    <div style="font-size:10px;color:var(--amber);letter-spacing:.18em;font-family:var(--display);margin-bottom:.85rem">CE QUI PEUT SE PASSER QUAND ON INSTALLE SANS VÉRIFICATION</div>
-    <div style="display:flex;flex-direction:column;gap:.6rem;font-family:var(--body);font-size:14px">
-      <div style="padding:.75rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">
-        <strong style="color:var(--red)">Keylogger caché :</strong> Le logiciel enregistre tout ce que vous tapez — mots de passe inclus — et envoie les données à un serveur distant.
-      </div>
-      <div style="padding:.75rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">
-        <strong style="color:var(--red)">Backdoor :</strong> Le logiciel ouvre une porte d'entrée cachée dans votre réseau, accessible à son créateur à distance.
-      </div>
-      <div style="padding:.75rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">
-        <strong style="color:var(--red)">Logiciel légitime + composant malveillant :</strong> L'outil fonctionne vraiment, mais embarque un malware invisible. Impossible à détecter par l'utilisateur.
-      </div>
-      <div style="padding:.75rem;background:rgba(0,255,65,.06);border-left:2px solid var(--green);color:var(--white)">
-        <strong style="color:var(--green)">Open source ≠ sûr :</strong> Le code source est public mais personne n'a forcément vérifié qu'il ne contient rien de malveillant. Le service IT existe pour faire ces vérifications.
-      </div>
-    </div>
-  </div>`,
-  question:"Vous avez besoin d'un logiciel pour un projet. Votre service IT prend du temps à répondre. Que faites-vous ?",
-  options:[
-    {t:"Télécharger le logiciel depuis le site officiel de l'éditeur — au moins c'est la source officielle.", c:false},
-    {t:"Attendre la validation du service IT ou relancer votre demande. En urgence, expliquer le contexte à votre responsable pour accélérer le processus.", c:true},
-    {t:"Télécharger une version portable (sans installation) qui ne nécessite pas de droits admin.", c:false},
-    {t:"Utiliser une version en ligne (SaaS) qui ne s'installe pas sur le poste.", c:false}
-  ],
-  feedback:{
-    ok:"✓ Exact. Même depuis le site officiel, un logiciel non validé peut contenir des vulnérabilités, collecter des données, ou créer des conflits de sécurité. La version portable contourne les protections sans les autorisation nécessaires. Certains SaaS en ligne transmettent vos données à l'étranger. Le service IT valide non seulement la sécurité du logiciel, mais aussi sa compatibilité avec l'infrastructure.",
-    ko:"Même depuis la source officielle ou en version portable, un logiciel non validé par l'IT échappe aux vérifications de sécurité de l'entreprise. Le service IT analyse les logiciels pour détecter les comportements suspects, les transmissions de données, et la compatibilité avec votre environnement sécurisé."
-  },
-  hint:"Qu'est-ce qu'un keylogger, et comment pourrait-il être dissimulé dans un logiciel en apparence utile ?",
-  lesson:"N'installez jamais de logiciel sans validation du service IT, même depuis une source officielle. Relancez votre demande si nécessaire."
-},
-
-// ── 24 ────────────────────────────────────────────────
-{
-  id:24, phase:"ACTE V — LA RECONSTRUCTION",
-  title:"Félicitations, vous avez gagné un iPhone !",
-  subtitle:"Reconnaître les arnaques par SMS ou email",
-  story:`Deux semaines après l'incident, votre téléphone professionnel reçoit un SMS : <em>"Félicitations ! Vous êtes le gagnant du tirage mensuel Verixa. Réclamez votre iPhone 16 Pro avant 24h :"</em> suivi d'un lien. Plusieurs collègues ont reçu le même message. L'un d'eux a déjà cliqué.`,
-  visual:`<div class="visual-container" style="padding:1.25rem;display:flex;flex-direction:column;gap:1rem">
-    <div style="display:flex;justify-content:center">
-      <div class="phone-mockup">
-        <div class="phone-top"><span>📶 Orange</span><span>14:07</span><span>🔋91%</span></div>
-        <div style="background:var(--bg3);padding:5px 12px;text-align:center;font-size:11px;color:var(--gray)">+33 6 78 90 12 34 (Inconnu)</div>
-        <div class="phone-screen">
-          <div class="sms-bubble">
-            <div class="sms-sender">Verixa-Rewards</div>
-            🎉 Félicitations ! Vous avez été sélectionné pour recevoir un iPhone 16 Pro (valeur 1 329€).<br><br>
-            Réclamez votre cadeau avant 24h :<br>
-            <span class="sms-link">bit.ly/verixa-reward-iphone</span><br><br>
-            Seuls vos coordonnées de livraison et 2,99€ de frais de port sont demandés.
-          </div>
-        </div>
-      </div>
-    </div>
-    <div style="background:var(--bg3);border:1px solid var(--border);padding:1rem">
-      <div style="font-size:10px;color:var(--amber);letter-spacing:.18em;font-family:var(--display);margin-bottom:.75rem">POURQUOI C'EST UNE ARNAQUE — LES SIGNAUX</div>
-      <div style="font-family:var(--body);font-size:14px;color:var(--white);line-height:1.9">
-        ⚠ Vous n'avez participé à aucun tirage<br>
-        ⚠ Expéditeur inconnu — jamais "Verixa" n'enverrait depuis un numéro mobile<br>
-        ⚠ Lien raccourci (bit.ly) qui masque la vraie destination<br>
-        ⚠ Urgence (24h) pour empêcher la réflexion<br>
-        ⚠ Les "2,99€ de frais" : technique pour récupérer votre numéro de carte bancaire
-      </div>
-    </div>
-  </div>`,
-  question:"Vous recevez ce SMS sur votre téléphone pro. Un collègue dit 'J'ai cliqué mais je n'ai rien renseigné.' Que faites-vous pour vous et pour lui ?",
-  options:[
-    {t:"Cliquer pour voir à quoi ressemble le site — juste regarder ne peut pas faire de mal.", c:false},
-    {t:"Ignorer le SMS et supprimer. Pour le collègue qui a cliqué : ne rien faire puisqu'il n'a rien saisi.", c:false},
-    {t:"Ne pas cliquer, supprimer. Pour le collègue : signaler au service IT immédiatement — cliquer suffit parfois à déclencher un téléchargement automatique.", c:true},
-    {t:"Transférer le SMS au service IT pour analyse avant de décider.", c:false}
-  ],
-  feedback:{
-    ok:"✓ Parfait. Le simple clic sur certains liens peut déclencher un téléchargement automatique de malware — sans que l'utilisateur ne saisisse quoi que ce soit. C'est ce qu'on appelle un 'drive-by download'. Signaler au service IT même sans saisie de données permet une vérification rapide du poste. Pour vous : supprimez sans cliquer.",
-    ko:"'Juste regarder' peut suffire pour certains sites malveillants à télécharger un malware automatiquement. Et pour le collègue : ne rien faire serait une erreur — un simple clic peut déclencher un téléchargement silencieux. Le service IT doit être alerté pour analyser son poste."
-  },
-  hint:"Qu'est-ce qu'un 'drive-by download' ? Est-il nécessaire de télécharger manuellement un fichier pour être infecté ?",
-  lesson:"Ne cliquez jamais sur un lien promettant un gain inattendu. Si un collègue a cliqué, signalez-le à l'IT même sans saisie — le simple clic peut suffire à infecter."
-},
-
-// ── 25 ────────────────────────────────────────────────
-{
-  id:25, phase:"ÉPILOGUE — LA VICTOIRE",
-  title:"La Conversion PDF Urgente",
-  subtitle:"Sites web non vérifiés et risques de fuite de données",
-  story:`Dernier jour avant la présentation au client. Votre logiciel PDF ne fonctionne plus. Un collègue propose une solution rapide : <strong>"Va sur SuperPdfGenerator.ru, c'est gratuit et ça marche super bien."</strong> Le fichier à convertir contient le contrat client avec les tarifs confidentiels de l'entreprise.`,
-  visual:`<div class="visual-container" style="padding:1.25rem">
-    <div style="background:#000;border:1px solid #333;border-radius:4px;padding:8px 12px;display:flex;align-items:center;gap:8px;margin-bottom:1rem">
-      <span style="font-size:14px">🔒</span>
-      <span style="font-family:'Share Tech Mono',monospace;font-size:13px;color:#ff6666">https://superpdfgenerator.ru/convert</span>
-    </div>
-    <div style="font-size:10px;color:var(--amber);letter-spacing:.18em;font-family:var(--display);margin-bottom:.85rem">CE QUI SE PASSE QUAND VOUS UPLOADEZ UN FICHIER</div>
-    <div style="display:flex;flex-direction:column;gap:.6rem;font-family:var(--body);font-size:14px">
-      <div style="padding:.75rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">
-        <strong style="color:var(--red)">Votre fichier est envoyé sur un serveur inconnu</strong> — probablement hors de France, hors Union Européenne, sans politique de confidentialité vérifiable.
-      </div>
-      <div style="padding:.75rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">
-        <strong style="color:var(--red)">Le contenu peut être lu, copié, revendu</strong> — contrats, tarifs, données clients, informations RH. Tout ce qui est dans le fichier est désormais accessible à l'opérateur du site.
-      </div>
-      <div style="padding:.75rem;background:var(--rdim);border-left:2px solid var(--red);color:var(--white)">
-        <strong style="color:var(--red)">Le fichier "converti" peut contenir un malware</strong> — le PDF renvoyé peut embarquer du code malveillant qui s'exécute à l'ouverture.
-      </div>
-      <div style="padding:.75rem;background:rgba(0,255,65,.06);border-left:2px solid var(--green);color:var(--white)">
-        <strong style="color:var(--green)">Alternatives sûres :</strong> "Imprimer en PDF" natif dans Windows/Mac, Word → Fichier → Exporter en PDF, LibreOffice, ou demander à l'IT un outil validé.
-      </div>
-    </div>
-  </div>`,
-  question:"Votre logiciel PDF est en panne et vous devez convertir un document confidentiel avant une présentation. Que faites-vous ?",
-  options:[
-    {t:"Utiliser superpdfgenerator.ru ou un site similaire — c'est rapide et votre fichier ne restera pas longtemps sur leur serveur.", c:false},
-    {t:"Utiliser la fonction native 'Imprimer → Microsoft Print to PDF' ou 'Fichier → Exporter' disponible dans Word, et signaler la panne à l'IT.", c:true},
-    {t:"Envoyer le fichier à un collègue qui a un logiciel PDF fonctionnel pour qu'il le convertisse.", c:false},
-    {t:"Utiliser Google Drive ou Google Docs pour convertir le fichier.", c:false}
-  ],
-  feedback:{
-    ok:"✓ Parfait. Windows et macOS intègrent nativement la conversion en PDF : dans n'importe quelle application, faites 'Fichier → Imprimer → choisir Microsoft Print to PDF (Windows) ou PDF (Mac)'. Word, Excel et PowerPoint ont aussi une option 'Exporter en PDF' directe. Zéro upload, zéro risque. Signalez la panne à l'IT pour qu'il répare ou remplace l'outil.",
-    ko:"Même pour quelques secondes, uploader un document confidentiel sur un site non validé expose son contenu. Votre collègue ne devrait pas non plus recevoir des données confidentielles sans nécessité. Google Drive envoie vos données sur des serveurs Google — acceptable selon la politique de votre entreprise, mais à valider avec l'IT. La solution la plus sûre est native à votre système."
-  },
-  hint:"Est-ce que votre ordinateur (Windows ou Mac) a déjà intégré une façon de créer des PDF sans logiciel externe ?",
-  lesson:"Pour convertir en PDF, utilisez la fonction native de votre OS (Imprimer → PDF). Ne jamais uploader un document confidentiel sur un site web non validé.",
+  lesson:"Le MFA est votre mesure numéro 1. Activez-le sur tous vos comptes — pro et perso. C'est simple, gratuit, et extrêmement efficace.",
   isFinal:true
 }
 
@@ -990,10 +600,10 @@ const ENIGMAS = [
 // ═══════════════════════════════════════════════════════
 const BOOT_MSGS = [
   "BLACKOUT v3.0 — Système d'entraînement cybersécurité","Chargement du moteur d'incident... [OK]",
-  "Connexion au serveur de simulation... [OK]","Vérification des modules d'enquête... [25 modules chargés]","",
+  "Connexion au serveur de simulation... [OK]","Vérification des modules d'enquête... [15 modules chargés]","",
   "⚠ ALERTE CRITIQUE — 08h47","Ransomware détecté sur le réseau interne : BlackoutRANS v3.1",
   "Fichiers chiffrés : 847 Go sur 1.2 To","Origine : GR1MF0X — Tor exit node (185.220.101.47)","",
-  "MISSION : Résoudre 25 modules pour obtenir","le code de désactivation du ransomware.",
+  "MISSION : Résoudre 15 modules pour obtenir","le code de désactivation du ransomware.",
   "Chaque erreur coûte 5 minutes.","Le maître du jeu valide les réponses de l'équipe.","",
   "Règle : Discutez ensemble, mettez-vous d'accord,","le maître du jeu sélectionne la réponse choisie par l'équipe.","",
   "[ EN ATTENTE DU SIGNAL DE DÉPART ]"
@@ -1123,7 +733,7 @@ const WELCOME = [
   {t:" ", cl:""},
   {t:"GR1MF0X a chiffré les systèmes de l'entreprise.", cl:""},
   {t:"Pour obtenir le code de désactivation, résolvez", cl:""},
-  {t:"les 25 modules d'enquête dans l'ordre.", cl:""},
+  {t:"les 15 modules d'enquête dans l'ordre.", cl:""},
   {t:" ", cl:""},
   {t:"RÈGLES DE L'ÉQUIPE :", cl:"t-amber"},
   {t:"  → Tout le monde discute et propose des réponses", cl:""},
@@ -1173,7 +783,7 @@ function updateNav() {
   });
 }
 function updateThreat() {
-  const pct = (STATE.score / 25) * 100;
+  const pct = (STATE.score / 15) * 100;
   const threat = Math.max(5, 100 - pct);
   const f = document.getElementById('threat-fill');
   const t = document.getElementById('threat-text');
